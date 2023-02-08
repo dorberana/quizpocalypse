@@ -3,7 +3,7 @@
 
 // import your .js file here (e.g. import john from './modules/john.js')
 // ...
-import mikailashanin from './modules/mikailashanin.js';
+import miksdumb from './modules/miksdumb.js';
 import eloisa from './modules/eloisa.js';
 import lourdescamano from './modules/lourdescamano.js';
 import maryRose from './modules/mary-rose.js';
