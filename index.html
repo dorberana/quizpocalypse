@@ -14,11 +14,12 @@
             <h1>{{ app.name }}</h1>
         </header>
         <main class="container" v-cloak>
+            <!-- quizzes -->
             <div v-if="modules" class="container">
                 <table class="table table-quizzes table-hover table-striped">
                     <thead>
                         <tr>
-                            <td colspan="4">
+                            <td colspan="5">
                                 <input v-model="query" type="search" class="form-control form-control-lg" placeholder="Search">
                             </td>
                         </tr>
@@ -26,12 +27,13 @@
                             <td class="row-number"></td>
                             <th>BSIT-3B</th>
                             <th style="text-align: center">ITEMS</th>
+                            <th class="text-primary" style="text-align: center">SCORE</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-if="searchedModules.length <= 0" class="table-danger">
-                            <td colspan="4" class="error-msg">
+                            <td colspan="5" class="error-msg">
                                 No quizzes found<template v-if="query.trim() !== ''"> for <b><i>{{ query }}</i></b></template>.
                             </td>
                         </tr>
@@ -56,8 +58,9 @@
                                     </div>
                                 </td>
                                 <td class="items-count">{{ module.totalItems }}</td>
+                                <td class="score text-primary">{{ module.score }}</td>
                                 <td class="action">
-                                    <button @click="showQuiz(module.name)" class="btn btn-dark">
+                                    <button @click="showQuiz(module.name)" class="btn" :class="{ 'btn-dark': module.score == null, 'btn-outline-dark': module.score != null }">
                                         Take<span class="d-none d-sm-inline-block">&nbsp;Quiz</span>
                                     </button>
                                 </td>
@@ -67,6 +70,7 @@
                 </table>
             </div>
 
+            <!-- quiz modal -->
             <div class="modal fade" id="quiz-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="quiz-modal-label" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
@@ -78,7 +82,7 @@
                                     class="modal-avatar"
                                 />
                                 <div class="title">
-                                    <p>
+                                    <p id="quiz-modal-label">
                                         Quiz by
                                         <a :href="`https://github.com/${active.profile.username}`" class="text-decoration-none fw-bold" target="_blank">
                                             @{{ active.profile.username }}
@@ -91,9 +95,7 @@
                                         </small>
                                     </p>
                                 </div>
-                                <button @click="hideQuiz" type="button" class="btn btn-dark default">
-                                    Close
-                                </button>
+                                <button @click="hideQuiz" type="button" class="btn-close btn-close-white btn-sm"></button>
                             </template>
                         </div>
                         <div class="modal-body">
@@ -122,18 +124,34 @@
                             </template>
                             <div v-else-if="active.items && active.finished" class="my-5 d-flex align-items-center flex-column">
                                 <h2 class="text-secondary">QUIZ SUBMITTED!</h2>
-                                <h3>
+                                <h3 class="mb-4">
                                     SCORE:
                                     <span class="fw-bolder text-primary">{{ active.score }}</span>
                                     <span class="text-secondary">/</span>
                                     <span class="fw-bolder text-dark">{{ active.items.length }}</span>
                                 </h3>
+                                <button class="btn btn-outline-dark" @click="hideQuiz">Confirm</button>
                             </div>
                         </div>
                         <div v-if="!active.finished" class="modal-footer">
-                            <button @click="submitQuiz" :disabled="!allAnswered" type="button" class="btn btn-dark default">
+                            <button @click="showConfirm" :disabled="!allAnswered" type="button" class="btn btn-dark default">
                                 Submit
                             </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- confirm modal -->
+            <div class="modal fade" id="confirm-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-sm modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-body bg-light">
+                            <h5>Are you sure you want to submit this quiz at this time?</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button @click="hideConfirm" type="button" class="btn btn-outline-secondary">Not yet</button>
+                            <button @click="submitQuiz"  type="button" class="btn btn-dark">Yes</button>
                         </div>
                     </div>
                 </div>
