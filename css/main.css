@@ -51,6 +51,10 @@ header {
     border-radius: 50%;
 }
 
+.table-quizzes .score-xs {
+    text-align: center;
+}
+
 .error-msg {
     word-break: break-word;
 }
