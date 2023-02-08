@@ -25,9 +25,10 @@
                         </tr>
                         <tr>
                             <td class="row-number"></td>
-                            <th>BSIT-3B</th>
-                            <th style="text-align: center">ITEMS</th>
-                            <th class="text-primary" style="text-align: center">SCORE</th>
+                            <th>AUTHOR</th>
+                            <th class="text-primary d-none d-sm-table-cell" style="text-align: center">SCORE</th>
+                            <th class="d-none d-sm-table-cell" style="text-align: center">ITEMS</th>
+                            <th class="score-xs d-table-cell d-sm-none" colspan="2">SCORE</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -57,8 +58,14 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="items-count">{{ module.totalItems }}</td>
-                                <td class="score text-primary">{{ module.score }}</td>
+                                <td class="score text-primary d-none d-sm-table-cell">{{ module.score }}</td>
+                                <td class="items-count d-none d-sm-table-cell">{{ module.totalItems }}</td>
+                                <td class="score-xs d-table-cell d-sm-none" colspan="2">
+                                    <b v-if="module.score != null" class="text-primary">{{ module.score }}</b>
+                                    <b v-else="module.score != null" class="text-secondary">0</b>
+                                    /
+                                    <b>{{ module.totalItems }}</b>
+                                </td>
                                 <td class="action">
                                     <button @click="showQuiz(module.name)" class="btn" :class="{ 'btn-dark': module.score == null, 'btn-outline-dark': module.score != null }">
                                         Take<span class="d-none d-sm-inline-block">&nbsp;Quiz</span>
@@ -146,12 +153,12 @@
             <div class="modal fade" id="confirm-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-sm modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
-                        <div class="modal-body bg-light">
+                        <div class="modal-body bg-dark text-white">
                             <h5>Are you sure you want to submit this quiz at this time?</h5>
                         </div>
-                        <div class="modal-footer">
-                            <button @click="hideConfirm" type="button" class="btn btn-outline-secondary">Not yet</button>
-                            <button @click="submitQuiz"  type="button" class="btn btn-dark">Yes</button>
+                        <div class="modal-footer bg-dark text-white border-dark">
+                            <button @click="hideConfirm" type="button" class="btn btn-outline-light">Not yet</button>
+                            <button @click="submitQuiz"  type="button" class="btn btn-secondary">Yes</button>
                         </div>
                     </div>
                 </div>
