@@ -1,7 +1,7 @@
 export default {
     state: {
         profile: {
-            username: "MikailaShaninSotaso",
+            username: "miksdumb",
             fullName: "Mikaila Shanin Sotaso",
         },
 
