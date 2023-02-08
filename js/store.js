@@ -3,6 +3,7 @@
 
 // import your .js file here (e.g. import john from './modules/john.js')
 // ...
+import eichelle from './modules/eichelle.js';
 import eloisa from './modules/eloisa.js';
 import lourdescamano from './modules/lourdescamano.js';
 import maryRose from './modules/mary-rose.js';
@@ -29,6 +30,7 @@ const store = Vuex.createStore({
 
         // include your module here (e.g. john)
         // ...
+        eichelle,
         eloisa,
         lourdescamano,
         maryRose,
