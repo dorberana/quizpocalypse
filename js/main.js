@@ -18,6 +18,10 @@ const app = Vue.createApp({
                 id: 'quiz-modal',
                 el: null
             },
+            confirmModal: {
+                id: 'confirm-modal',
+                el: null
+            },
             query: ''
         }
     },
@@ -79,17 +83,35 @@ const app = Vue.createApp({
             this.showQuizModal(false);
         },
 
+        // show confirm
+        showConfirm() {
+            this.confirmModal.el.show();
+        },
+
+        // hide confirm
+        hideConfirm() {
+            this.confirmModal.el.hide();
+        },
+
         // submit quiz
         submitQuiz() {
-            if(confirm("Are you ready to submit your answers?")) {
-                // count score
-                for(let i=0; i<this.active.items.length; i++) {
-                    const item = this.active.items[i];
-                    if(item.correct === item.selected)
-                        this.active.score += 1;
-                }
-                this.active.finished = true;
+            // count score
+            for(let i=0; i<this.active.items.length; i++) {
+                const item = this.active.items[i];
+                if(item.correct === item.selected)
+                    this.active.score += 1;
             }
+
+            // set module score
+            for(let i=0; i<this.modules.length; i++) {
+                if(this.modules[i].name === this.active.module) {
+                    this.modules[i].score = this.active.score;
+                    break;
+                }
+            }
+
+            this.active.finished = true;
+            this.hideConfirm();
         }
     },
 
@@ -102,6 +124,7 @@ const app = Vue.createApp({
                     name: key,
                     profile   : this.$store.getters[`${key}/profile`],
                     totalItems: this.$store.getters[`${key}/items`].length,
+                    score: null
                 });
             }
         }
@@ -110,11 +133,15 @@ const app = Vue.createApp({
 
     mounted() {
         // initialize quizModal
-        const modal = document.getElementById(this.quizModal.id);
-        this.quizModal.el = new bootstrap.Modal(modal);
-        modal.addEventListener('hidden.bs.modal',  (event) => {
+        const quizModal = document.getElementById(this.quizModal.id);
+        this.quizModal.el = new bootstrap.Modal(quizModal);
+        quizModal.addEventListener('hidden.bs.modal',  (event) => {
             this.active.module = null;
         });
+
+        // initialize confirmModal
+        const confirmModal = document.getElementById(this.confirmModal.id);
+        this.confirmModal.el = new bootstrap.Modal(confirmModal);
     }
 });
 
