@@ -26,8 +26,8 @@
                         <tr>
                             <td class="row-number"></td>
                             <th>AUTHOR</th>
-                            <th class="d-none d-sm-table-cell" style="text-align: center">ITEMS</th>
                             <th class="text-primary d-none d-sm-table-cell" style="text-align: center">SCORE</th>
+                            <th class="d-none d-sm-table-cell" style="text-align: center">ITEMS</th>
                             <th class="score-xs d-table-cell d-sm-none" colspan="2">SCORE</th>
                             <th></th>
                         </tr>
@@ -58,8 +58,8 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="items-count d-none d-sm-table-cell">{{ module.totalItems }}</td>
                                 <td class="score text-primary d-none d-sm-table-cell">{{ module.score }}</td>
+                                <td class="items-count d-none d-sm-table-cell">{{ module.totalItems }}</td>
                                 <td class="score-xs d-table-cell d-sm-none" colspan="2">
                                     <b v-if="module.score != null" class="text-primary">{{ module.score }}</b>
                                     <b v-else="module.score != null" class="text-secondary">0</b>
