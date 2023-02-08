@@ -14,7 +14,6 @@ import angela from './modules/angela.js';
 import craig from './modules/Craig.js';
 import junel from './modules/junel.js';
 import marklouis from './modules/marklouis.js';
-import gemma from './modules/gemma.js';
 import shaina from './modules/shaina.js';
 import don from './modules/don.js';
 import markisrael from './modules/markisrael.js';
@@ -41,7 +40,6 @@ const store = Vuex.createStore({
         craig,
         junel,
         marklouis,
-        gemma,
         shaina,
         don,
         markisrael,
