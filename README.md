@@ -3,13 +3,10 @@ Survive the QuizPocalypse, one question at a time!
 
 ### Installation
 1. Log in to your GitHub account using a web browser.
-2. ***Fork*** this repository.
+2. ***Fork*** this repository to your **own account**.
 3. Download and setup [**GitHub Desktop**](https://desktop.github.com/) and sign in with your GitHub account.
 4. ***Clone*** your forked repository using **GitHub Desktop**.
-5. Open the cloned repository in an IDE such as
-   [Visual Studio Code](https://code.visualstudio.com),
-   [Sublime Text](https://www.sublimetext.com),
-   or [Notepad++](https://notepad-plus-plus.org/downloads).
+5. Open the cloned repository in [**Visual Studio Code**](https://code.visualstudio.com).
 
 ### Contributing
 1. Create a new `.js` file in the [**js/modules**](js) folder, with your first name as the file name (e.g. "john.js").
@@ -92,8 +89,41 @@ Survive the QuizPocalypse, one question at a time!
    ```
 
 ### Testing
-Open `index.html` in a web browser and test your quiz.
+Open the project in
+[**Live Server**](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+or
+[**http-server**](https://www.npmjs.com/package/http-server)
+to test your quiz,
+as directly opening `index.html` in the browser may result in a
+[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) error.
 
+#### To use [**Live Server**](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer):
+1. Install the Live Server extension for Visual Studio Code. To do this, open Visual Studio Code, click on the Extensions button on the left side panel, and search for "Live Server". Install the first result by Ritwick Dey. 
+2. Open the HTML file you want to view in Live Server. 
+3. Right-click on the HTML file in the Visual Studio Code editor and select "Open with Live Server" from the context menu. 
+4. This should launch your default web browser and display the HTML file you selected. 
+   
+   <small>
+   Note: If you do not see the "Open with Live Server" option in the context menu, you may need to restart Visual Studio Code
+   </small>
+
+#### To use [**http-server**](https://www.npmjs.com/package/http-server):
+1. Download and install [Node.js](https://nodejs.org/) if you haven't already.
+2. Install http-server globally using the terminal with the command:
+   ```
+   npm install http-server -g
+   ```
+   or with elevated privilege by adding "sudo" for Mac:
+   ```
+   sudo npm install http-server -g
+   ```
+3. Navigate to the folder containing the `index.html` in the terminal.
+4. Start the http-server with the command:
+   ```
+   http-server
+   ```
+5. Access the application by opening a web browser and entering the URL:
+  <http://localhost:8080>.
 
 ### Submission
 1. ***Commit*** and ***Push*** changes to your fork.
