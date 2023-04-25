@@ -7,7 +7,7 @@ export default {
 
         items: [
             {
-                question: "1) How many computer languages are in use?",
+                question: "How many computer languages are in use?",
                 choices: {
                     A: "2000",
                     B: "5000",
@@ -17,7 +17,7 @@ export default {
             },
 
             {
-            question: "2) Which of these is not an early computer?",
+            question: "Which of these is not an early computer?",
             choices: {
                 A: "ENIAC",
                 B: "UNIVAC",
@@ -28,7 +28,7 @@ export default {
 
 
             {
-            question: "3) Who founded Apple Computer?",
+            question: "Who founded Apple Computer?",
             choices: {
                 A: "Stephen Fry",
                 B: "Bill Gates",
@@ -38,7 +38,7 @@ export default {
              },
 
            {
-            question: "4) Which of these is not a peripheral, in computer terms?",
+            question: "Which of these is not a peripheral, in computer terms?",
             choices: {
                 A: "Motherboard",
                 B: "Monitor",
@@ -48,7 +48,7 @@ export default {
              },
 
           {
-            question: "5) Which of the following is not one of the early “protocols,” or ways to use the Internet?",
+            question: "Which of the following is not one of the early “protocols,” or ways to use the Internet?",
             choices: {
                 A: "Telnet",
                 B: "Blogging",
@@ -58,7 +58,7 @@ export default {
              },
 
           {
-            question: "6) A ‘font’ describes which of the following things?",
+            question: "A ‘font’ describes which of the following things?",
             choices: {
                 A: "a kind of computer",
                 B: "keys",
@@ -68,7 +68,7 @@ export default {
              },
 
           {
-            question: "7) Which of these is not a kind of computer",
+            question: "Which of these is not a kind of computer",
             choices: {
                 A: "Yahoo",
                 B: "an intranet",
@@ -78,7 +78,7 @@ export default {
              },
 
           {
-            question: "8) What kinds of things can you find on a ‘keyboard’?",
+            question: "What kinds of things can you find on a ‘keyboard’?",
             choices: {
                 A: "memory",
                 B: "words",
@@ -88,7 +88,7 @@ export default {
              },
 
           {
-            question: "9) Which of the following words best describes the word ‘icon’",
+            question: "Which of the following words best describes the word ‘icon’",
             choices: {
                 A: "picture",
                 B: "number",
@@ -97,7 +97,7 @@ export default {
             correct: "A"
              },
           {
-            question: "10) Which of the following words best describes ‘password’?",
+            question: "Which of the following words best describes ‘password’?",
             choices: {
                 A: "program",
                 B: "memory",
