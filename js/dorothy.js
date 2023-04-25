@@ -2,7 +2,7 @@ export default {
     state: {
         profile: {
             username: "dorberana",
-            fullName: "Drothy Mae Berana",
+            fullName: "Dorothy Mae Berana",
         },
 
         items: [
